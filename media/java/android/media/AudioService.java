@@ -2116,6 +2116,12 @@ public class AudioService extends IAudioService.Stub {
             mRingerMode = ringerMode;
         }
 
+	if (ringerMode == AudioManager.RINGER_MODE_VIBRATE || ringerMode == AudioManager.RINGER_MODE_SILENT) {
+		AudioSystem.setMuteLedOn(true);
+	} else {
+		AudioSystem.setMuteLedOn(false);
+	}
+
         // Mute stream if not previously muted by ringer mode and ringer mode
         // is not RINGER_MODE_NORMAL and stream is affected by ringer mode.
         // Unmute stream if previously muted by ringer mode and ringer mode

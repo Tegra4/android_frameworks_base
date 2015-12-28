@@ -2204,6 +2204,12 @@ public class AudioService extends IAudioService.Stub {
             mRingerMode = ringerMode;
         }
 
+	if (ringerMode == AudioManager.RINGER_MODE_VIBRATE || ringerMode == AudioManager.RINGER_MODE_SILENT) {
+		AudioSystem.setMuteLedOn(true);
+	} else {
+		AudioSystem.setMuteLedOn(false);
+	}
+
         muteRingerModeStreams();
 
         // Post a persist ringer mode msg

@@ -437,6 +437,15 @@ android_media_AudioSystem_initStreamVolume(JNIEnv *env, jobject thiz, jint strea
 }
 
 static jint
+android_media_AudioSystem_setMuteLedOn(JNIEnv *env,
+                                               jobject thiz,
+                                               jboolean on)
+{
+    return (jint) check_AudioSystem_Command(AudioSystem::setMuteLedOn(on));
+}
+
+
+static jint
 android_media_AudioSystem_setStreamVolumeIndex(JNIEnv *env,
                                                jobject thiz,
                                                jint stream,
@@ -1631,6 +1640,7 @@ static JNINativeMethod gMethods[] = {
     {"setForceUse",         "(II)I",    (void *)android_media_AudioSystem_setForceUse},
     {"getForceUse",         "(I)I",     (void *)android_media_AudioSystem_getForceUse},
     {"initStreamVolume",    "(III)I",   (void *)android_media_AudioSystem_initStreamVolume},
+    {"setMuteLedOn",        "(Z)I",     (void *)android_media_AudioSystem_setMuteLedOn},
     {"setStreamVolumeIndex","(III)I",   (void *)android_media_AudioSystem_setStreamVolumeIndex},
     {"getStreamVolumeIndex","(II)I",    (void *)android_media_AudioSystem_getStreamVolumeIndex},
     {"setMasterVolume",     "(F)I",     (void *)android_media_AudioSystem_setMasterVolume},

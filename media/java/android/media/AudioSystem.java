@@ -623,6 +623,7 @@ public class AudioSystem
     public static native int getForceUse(int usage);
     public static native int initStreamVolume(int stream, int indexMin, int indexMax);
     public static native int setStreamVolumeIndex(int stream, int index, int device);
+    public static native int setMuteLedOn(boolean on);
     public static native int getStreamVolumeIndex(int stream, int device);
     public static native int setMasterVolume(float value);
     public static native float getMasterVolume();
